@@ -1,0 +1,352 @@
+/*creating global resources*/
+:root {
+    --color-primary: #8644CF;
+    --color-primarylight: #d5b0ff;
+    --color-grey: #F3F0F4;
+    --color-darkgrey: #C7C7C7;
+    --color-white: #ffffff;
+    --color-black: #323232;
+    --color-red: #CF4444;
+
+}
+
+/*applying general styles*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*Main background*/
+.main-bg {
+    width: 100%;
+    height: 100vh;
+    background-image: url('/styles/images/15.gradients.ray.st.png');
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4%;
+    background-size: cover;
+    gap: 40px;
+}
+
+/*logo*/
+.logo {
+    width: 150px;
+}
+
+h2, h3, p{
+    font-family: 'Poppins';
+    color: var(--color-black);
+}
+
+h3{
+    font-weight: normal;
+    color: gray;
+}
+
+h4{
+    font-family: 'Poppins';
+    font-weight: normal;
+    color: gray;
+}
+
+h5{
+    font-family: 'Poppins';
+    color: white;
+}
+
+.layout{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    gap: 40px;
+}
+
+.menu-bar{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 70vh;
+    background-color: var(--color-white);
+    padding: 20px;
+    border-radius: 10px;
+    gap: 20px;
+    box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.50);
+}
+
+.menu-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.primary-button{
+    width: 40px;
+    height: 100%;
+    border-radius: 5px;
+    background-color: var(--color-primary);
+    color: #ffffff;
+    border: none;
+    font-weight: bold;
+    font-size: medium;
+    cursor: pointer;
+}
+
+.secondary-button{
+    display: flex;
+    width: 30px;
+    height: 100%;
+    background: none;
+    border: 2px solid var(--color-primary);
+    border-radius: 5px;
+    cursor: pointer;
+    color: var(--color-primary);
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-button{
+    display: flex;
+    width: 30px;
+    height: 100%;
+    background: var(--color-red);
+    border-radius: 5px;
+    cursor: pointer;
+    color: var(--color-primary);
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border: none;
+}
+
+.primary-button:hover, .secondary-button:hover{
+    box-shadow: 0px 0px 30px var(--color-primarylight);
+    scale: 1.02;
+}
+
+.delete-button:hover{
+    box-shadow: 0px 0px 30px rgb(255, 176, 176);
+    scale: 1.02;
+}
+
+ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.menu li{
+    background-color: var(--color-grey);
+    padding: 10px;
+    border-radius: 5px;
+    font-family: "Poppins";
+    cursor: pointer;
+}
+
+.menu li:hover{
+    border: 1px solid var(--color-primary);
+}
+
+.menu li:focus{
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.task-area{
+    width: 100%;
+    height: 70vh;
+}
+
+.add-task{
+    display: flex;
+    width: 100%;
+    height: 40px;
+    gap: 10px;
+}
+
+.enter-task{
+    height: 100%;
+    width: 100%;
+    border: 2px solid var(--color-primary);
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.enter-task:focus, .enter-task:hover{
+    outline: none;
+    box-shadow: 0px 0px 30px var(--color-primarylight);
+}
+
+.enter-task::placeholder{
+    color: var(--color-primarylight);
+    font-family: "Poppins";
+}
+
+.search-box{
+    display: flex;
+    height: 40px;
+    width: 100%;
+    border: 2px solid var(--color-darkgrey);
+    border-radius: 5px;
+    padding: 0px 10px 00px 10px;
+}
+
+.search-box input{
+    font-family: "Poppins";
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+
+.search-box input:focus{
+    outline: none;
+}
+
+.search-box button{
+    border: none;
+    background-color: white;
+    color: var(--color-darkgrey);
+    cursor: pointer;
+}
+
+.all-tasks{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow: auto;
+}
+
+.tasks{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.task{
+    height: 40px;
+    width: 100%;
+    display: flex;
+    background-color: var(--color-grey);
+    border-radius: 5px;
+    padding: 5px 10px 5px 10px;
+    align-items: center;
+}
+
+/* Customize the label*/
+.checklabel {
+    display: flex;
+    cursor: pointer;
+    font-size: 16px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 100%;
+    font-family: "Poppins";
+    justify-content: start;
+    gap: 10px;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .checklabel input {
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark {
+    display: flex;
+    height: 25px;
+    width: 25px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    border: 1px solid var(--color-black);
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .checklabel:hover input ~ .checkmark {
+    background-color: rgb(221, 255, 221);
+  }
+
+  /* When the checkbox is checked, add a green background */
+  .checklabel input:checked ~ .checkmark {
+    background-color: rgb(112, 187, 0);
+  }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .checklabel input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .checklabel .checkmark:after {
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+
+  .checklabel input:checked ~ .label-text {
+    text-decoration: line-through;
+}
+
+.action-items{
+    display: flex;
+    gap: 5px;
+    height: 100%;
+    align-items: center;
+}
+
+.drop-down{
+    height: 100%;
+    min-width: 90px;
+    background: none;
+    border: 2px solid var(--color-primary);
+    outline: none;
+}
+
+.duedate{
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+
+.datepicker{
+    display: none;
+}
+
+.completed-divider{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.divider {
+    width: 100%;
+    height: 1px;
+    background-color:gray;
+}
+
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer p{
+    color: white;
+}
