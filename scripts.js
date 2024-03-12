@@ -17,6 +17,8 @@ function DisplayDueDate() {
     }
 }
 
+document.querySelector("label[for='dueDate']").addEventListener("click", DisplayDueDate);
+
 //Add Task
 const addTaskBox = document.getElementById("addTaskBox");
 const tasks = document.getElementById('tasks');
@@ -27,4 +29,4 @@ function addTask(){
     alert("You must input a task");
 }
 
-document.getElementById('add-btn').addEventListener('click', alert("hello"));
+document.getElementById('add-btn').addEventListener("click", addTask);
