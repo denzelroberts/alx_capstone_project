@@ -18,15 +18,13 @@ function DisplayDueDate() {
 }
 
 //Add Task
-const addTaskBox = document.getElementById('addTaskBox');
+const addTaskBox = document.getElementById("addTaskBox");
 const tasks = document.getElementById('tasks');
 
-document.getElementById("add-btn").addEventListener("click", addTask);
+
 
 function addTask(){
-    if(addTaskBox.value == ""){
-        alert("You must input a task");
-    }else{
-
-    }
+    alert("You must input a task");
 }
+
+document.getElementById('add-btn').addEventListener('click', alert("hello"));
