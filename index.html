@@ -55,21 +55,20 @@
                 <div class="add-task">
                     <input class="enter-task" type="text" id="addTaskBox" placeholder="Add your new task here"
                         name="add-task">
-                    <button id="add-btn" class="primary-button">+</button>
+                    <button onclick="addTask()" class="primary-button">+</button>
                 </div>
 
                 <!--Search box-->
-                <form class="search-box" action="">
+                <div class="search-box" action="">
                     <input type="text" placeholder="Search" name="search">
                     <button type="submit" id="search-icon"><i class="fa fa-search"></i></button>
-                </form>
+                </div>
 
                 <div class="all-tasks">
                     <!--To-do Tasks-->
-                    <div class="tasks">
+                    <ul id="tasks-container" class="tasks">
                         <!--Task-->
-                        <div>
-                            <form class="task" action="">
+                        <li id="task" class="task">
                                 <!--Checkbox-->
                                 <label class="checklabel">
                                     <input type="checkbox">
@@ -79,121 +78,22 @@
                                 <div class="action-items">
                                     <!--Urgency drop-down-->
                                     <select name="urgency" id="urgency" class="drop-down">
-                                        <option value="" disabled selected>Urgency:</option>
+                                        <option value="0" disabled selected>Urgency:</option>
                                         <option value="low">Low</option>
                                         <option value="normal">Normal</option>
                                         <option value="high">High</option>
                                     </select>
                                     <!--Select Date and time-->
                                     <div class="duedate">
-                                        <label id="dateicon" for="dueDate" class="secondary-button"><i
-                                                class="fa-solid fa-clock"></i>
+                                        <label id="dateicon" for="dueDate" class="secondary-button"><i class="fa-solid fa-clock"></i>
                                         </label>
                                         <input type="datetime-local" id="dueDate" name="dueDate" class="datepicker">
                                     </div>
+                                    <!--Delete button-->
                                     <button class="delete-button"><i class="fa-solid fa-trash"></i></button>
                                 </div>
-                            </form>
-                        </div>
-
-                        <!--Task-->
-                        <div>
-                            <form class="task" action="">
-                                <!--Checkbox-->
-                                <label class="checklabel">
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                    <span class="label-text">Task 2</span>
-                                </label>
-                                <div class="action-items">
-                                    <!--Urgency drop-down-->
-                                    <select name="urgency" id="urgency" class="drop-down">
-                                        <option value="" disabled selected>Urgency:</option>
-                                        <option value="low">Low</option>
-                                        <option value="medium">Medium</option>
-                                        <option value="high">High</option>
-                                    </select>
-                                    <!--Select Date and time-->
-                                    <div class="duedate">
-                                        <label id="dateicon" for="dueDate" class="secondary-button"><i
-                                                class="fa-solid fa-clock"></i>
-                                            <script>
-                                                document.querySelector("label[for='dueDate']").addEventListener("click", DisplayDueDate);
-                                            </script>
-                                        </label>
-                                        <input type="datetime-local" id="dueDate" name="dueDate" class="datepicker">
-                                    </div>
-                                    <button class="delete-button"><i class="fa-solid fa-trash"></i></button>
-                                </div>
-                            </form>
-                        </div>
-
-                        <!--Task-->
-                        <div>
-                            <form class="task" action="">
-                                <!--Checkbox-->
-                                <label class="checklabel">
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                    <span class="label-text">Task 3</span>
-                                </label>
-                                <div class="action-items">
-                                    <!--Urgency drop-down-->
-                                    <select name="urgency" id="urgency" class="drop-down">
-                                        <option value="" disabled selected>Urgency:</option>
-                                        <option value="low">Low</option>
-                                        <option value="medium">Medium</option>
-                                        <option value="high">High</option>
-                                    </select>
-                                    <!--Select Date and time-->
-                                    <div class="duedate">
-                                        <label id="dateicon" for="dueDate" class="secondary-button"><i
-                                                class="fa-solid fa-clock"></i>
-                                            <script>
-                                                document.querySelector("label[for='dueDate']").addEventListener("click", DisplayDueDate);
-                                            </script>
-                                        </label>
-                                        <input type="datetime-local" id="dueDate" name="dueDate" class="datepicker">
-                                    </div>
-                                    <button class="delete-button"><i class="fa-solid fa-trash"></i></button>
-                                </div>
-                            </form>
-                        </div>
-
-                        <!--Task-->
-                        <div>
-                            <form class="task" action="">
-                                <!--Checkbox-->
-                                <label class="checklabel">
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                    <span class="label-text">Task 4</span>
-                                </label>
-                                <div class="action-items">
-                                    <!--Urgency drop-down-->
-                                    <select name="urgency" id="urgency" class="drop-down">
-                                        <option value="" disabled selected>Urgency:</option>
-                                        <option value="low">Low</option>
-                                        <option value="medium">Medium</option>
-                                        <option value="high">High</option>
-                                    </select>
-                                    <!--Select Date and time-->
-                                    <div class="duedate">
-                                        <label id="dateicon" for="dueDate" class="secondary-button"><i
-                                                class="fa-solid fa-clock"></i>
-                                            <script>
-                                                document.querySelector("label[for='dueDate']").addEventListener("click", DisplayDueDate);
-                                            </script>
-                                        </label>
-                                        <input type="datetime-local" id="dueDate" name="dueDate" class="datepicker">
-                                    </div>
-                                    <button class="delete-button"><i class="fa-solid fa-trash"></i></button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
-
+                        </li>
+                    </ul>
                     <!--Completed Divider-->
                     <div class="completed-divider">
                         <div class="divider">
@@ -215,123 +115,12 @@
                                     <span class="label-text">Task 1</span>
                                 </label>
                                 <div class="action-items">
-                                    <!--Urgency drop-down-->
-                                    <select name="urgency" id="urgency" class="drop-down">
-                                        <option value="" disabled selected>Urgency:</option>
-                                        <option value="low">Low</option>
-                                        <option value="medium">Medium</option>
-                                        <option value="high">High</option>
-                                    </select>
-                                    <!--Select Date and time-->
-                                    <div class="duedate">
-                                        <label id="dateicon" for="dueDate" class="secondary-button"><i
-                                                class="fa-solid fa-clock"></i>
-                                            <script>
-                                                document.querySelector("label[for='dueDate']").addEventListener("click", DisplayDueDate);
-                                            </script>
-                                        </label>
-                                        <input type="datetime-local" id="dueDate" name="dueDate" class="datepicker">
-                                    </div>
+                                    <!--Delete button-->
                                     <button class="delete-button"><i class="fa-solid fa-trash"></i></button>
                                 </div>
                             </form>
                         </div>
-
-                        <!--Task-->
-                        <div>
-                            <form class="task" action="">
-                                <!--Checkbox-->
-                                <label class="checklabel">
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                    <span class="label-text">Task 2</span>
-                                </label>
-                                <div class="action-items">
-                                    <!--Urgency drop-down-->
-                                    <select name="urgency" id="urgency" class="drop-down">
-                                        <option value="" disabled selected>Urgency:</option>
-                                        <option value="low">Low</option>
-                                        <option value="medium">Medium</option>
-                                        <option value="high">High</option>
-                                    </select>
-                                    <!--Select Date and time-->
-                                    <div class="duedate">
-                                        <label id="dateicon" for="dueDate" class="secondary-button"><i
-                                                class="fa-solid fa-clock"></i>
-                                            <script>
-                                                document.querySelector("label[for='dueDate']").addEventListener("click", DisplayDueDate);
-                                            </script>
-                                        </label>
-                                        <input type="datetime-local" id="dueDate" name="dueDate" class="datepicker">
-                                    </div>
-                                    <button class="delete-button"><i class="fa-solid fa-trash"></i></button>
-                                </div>
-                            </form>
-                        </div>
-
-                        <!--Task-->
-                        <div>
-                            <form class="task" action="">
-                                <!--Checkbox-->
-                                <label class="checklabel">
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                    <span class="label-text">Task 3</span>
-                                </label>
-                                <div class="action-items">
-                                    <!--Urgency drop-down-->
-                                    <select name="urgency" id="urgency" class="drop-down">
-                                        <option value="" disabled selected>Urgency:</option>
-                                        <option value="low">Low</option>
-                                        <option value="medium">Medium</option>
-                                        <option value="high">High</option>
-                                    </select>
-                                    <!--Select Date and time-->
-                                    <div class="duedate">
-                                        <label id="dateicon" for="dueDate" class="secondary-button"><i
-                                                class="fa-solid fa-clock"></i>
-                                            <script>
-                                                document.querySelector("label[for='dueDate']").addEventListener("click", DisplayDueDate);
-                                            </script>
-                                        </label>
-                                        <input type="datetime-local" id="dueDate" name="dueDate" class="datepicker">
-                                    </div>
-                                    <button class="delete-button"><i class="fa-solid fa-trash"></i></button>
-                                </div>
-                            </form>
-                        </div>
-
-                        <!--Task-->
-                        <div>
-                            <form class="task" action="">
-                                <!--Checkbox-->
-                                <label class="checklabel">
-                                    <input type="checkbox">
-                                    <span class="checkmark"></span>
-                                    <span class="label-text">Task 4</span>
-                                </label>
-                                <div class="action-items">
-                                    <!--Urgency drop-down-->
-                                    <select name="urgency" id="urgency" class="drop-down">
-                                        <option value="" disabled selected>Urgency:</option>
-                                        <option value="low">Low</option>
-                                        <option value="medium">Medium</option>
-                                        <option value="high">High</option>
-                                    </select>
-                                    <!--Select Date and time-->
-                                    <div class="duedate">
-                                        <label id="dateicon" for="dueDate" class="secondary-button"><i
-                                                class="fa-solid fa-clock"></i>
-                                            <script>
-                                                document.querySelector("label[for='dueDate']").addEventListener("click", DisplayDueDate);
-                                            </script>
-                                        </label>
-                                        <input type="datetime-local" id="dueDate" name="dueDate" class="datepicker">
-                                    </div>
-                                    <button class="delete-button"><i class="fa-solid fa-trash"></i></button>
-                                </div>
-                            </form>
-                        </div>
+                        
                     </div>
                 </div>
             </div>

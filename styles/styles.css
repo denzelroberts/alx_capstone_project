@@ -317,6 +317,7 @@ ul{
     background: none;
     border: 2px solid var(--color-primary);
     outline: none;
+    border-radius: 5px;
 }
 
 .duedate{
@@ -327,6 +328,12 @@ ul{
 
 .datepicker{
     display: none;
+    height: 100%;
+    background: none;
+    border-radius: 5px;
+    margin-left: 5px;
+    border: 2px solid var(--color-primary);
+    color: var(--color-black);
 }
 
 .completed-divider{
