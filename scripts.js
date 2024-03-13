@@ -40,6 +40,7 @@ function createCategoryId() {
 function addTask() {
     if (addTaskBox.value == "") {
         alert("You must input a task");
+        return;
     }
     else {
         //Creating task ID
@@ -56,13 +57,16 @@ function addTask() {
 
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
+        checkbox.className = "default";
 
         const span = document.createElement("span");
         span.className = "checkmark";
 
-        const labeltext = document.createElement("span");
+        const labeltext = document.createElement("input");
+        labeltext.type = "text";
         labeltext.className = "label-text";
-        labeltext.textContent = addTaskBox.value;
+        labeltext.value = addTaskBox.value;
+        labeltext.setAttribute("readonly", "readonly");
 
         const actionitems = document.createElement("div");
         actionitems.className = "action-items";
@@ -110,6 +114,24 @@ function addTask() {
         }
         duedateIcon.addEventListener("click", DisplayDueDate);
 
+        //Create edit button
+        const editButton = document.createElement("button");
+        editButton.className = "edit-button";
+        editButton.innerHTML = `<i class="fa-solid fa-pen-to-square"></i>`;
+
+        //Edit functionality
+        editButton.addEventListener("click", () =>{
+            if(labeltext.readOnly == true){
+                labeltext.removeAttribute("readonly");
+                labeltext.focus();
+                editButton.innerHTML = `<i class="fa-solid fa-floppy-disk"></i>`;
+            }
+            else{
+                labeltext.setAttribute("readonly","readonly");
+                editButton.innerHTML = `<i class="fa-solid fa-pen-to-square"></i>`;
+            }
+        });
+
         //Create delete button
         const deleteButton = document.createElement("button");
         deleteButton.className = "delete-button";
@@ -127,6 +149,7 @@ function addTask() {
         //Append items to actionitems div
         actionitems.appendChild(urgency);
         actionitems.appendChild(duedateContainer);
+        actionitems.appendChild(editButton);
         actionitems.appendChild(deleteButton);
 
         //Append items to row
@@ -146,6 +169,7 @@ const categoryContainer = document.getElementById("categoryContainer");
 function createCategory(){
     if (categoryBox.value == "") {
         alert("You must input a category");
+        return;
     }
     else {
         //Creating category ID
