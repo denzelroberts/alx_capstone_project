@@ -137,6 +137,13 @@ function addTask() {
         deleteButton.className = "delete-button";
         deleteButton.innerHTML = `<i class="fa-solid fa-trash"></i>`;
 
+        //Delete functionality
+        deleteButton.addEventListener("click", () =>{
+            if(confirm("Are you sure you want to delete this task?")){
+                taskList.removeChild(listItem);
+            }
+        });
+
         //Append items to label tag
         label.appendChild(checkbox);
         label.appendChild(span);
