@@ -84,21 +84,38 @@ h5{
 
 .radio-container{
     width: 100%;
+    display: flex;
+    gap: 5px;
+    align-items: center;
 }
+
+.radio-label:hover{
+    border: 1px solid var(--color-primary);
+    transition: 0.4s;
+}
+
 .custom-radio{
     opacity: 0;
     cursor: pointer;
     height: 0;
-    width: 0;
+    width: 0; 
     margin-right: -5px;
 }
 
 .radio-label{
-    width: 1px;
+    width: 100%;
+    border-radius: 5px;
     font-family: "Poppins";
     background-color: var(--color-grey);
     padding: 10px;
-    border-radius: 5px;
+    border: none;
+    font-size: 14px;
+}
+
+.radio-container input:checked ~ .radio-label{
+    background-image: linear-gradient(to right,var(--color-primary), #ab0039);
+    color: white;
+    transition: ease-in 0.4s;
 }
 
 .category-top{

@@ -6,9 +6,6 @@ window.onload = function () {
         var formattedDate = date.toLocaleDateString(undefined, options);
         document.getElementById('datetime').innerHTML = formattedDate;
     }, 1000); // 1000 milliseconds = 1 second
-
-    // const defaultCategory = document.getElementById("defaultCategory");
-    // defaultCategory.addEventListener("load",focus);
 }
 
 //document.querySelector("label[for='dueDate']").addEventListener("click", DisplayDueDate);
@@ -201,18 +198,39 @@ function createCategory() {
         console.log(`New category ID: ${newCategoryId}`);
 
         //creating elements
-        const listItem = document.createElement("li");
-
-        const linkItem = document.createElement("a");
-        linkItem.className = "selected-link";
-        linkItem.href = "#";
-        linkItem.textContent = categoryBox.value;
+        const radioContainer = document.createElement("div");
+        radioContainer.className = "radio-container";
+        
+        const radioItem = document.createElement("input");
+        radioItem.type = "radio";
+        radioItem.name = "category";
+        radioItem.className = "custom-radio";
+        radioItem.id = newCategoryId;
+        
+        const radioLabel = document.createElement("input");
+        radioLabel.type = "text";
+        radioLabel.className = "radio-label";
+        radioLabel.value = categoryBox.value;
+        radioLabel.setAttribute("readonly", "readonly");
 
         //Create edit button
         const editCategory = document.createElement("button");
         editCategory.className = "edit-button";
         editCategory.innerHTML = `<i class="fa-solid fa-pen-to-square"></i>`;
         
+        //edit functionality
+        editCategory.addEventListener("click", () => {
+            if (radioLabel.readOnly == true) {
+                radioLabel.removeAttribute("readonly");
+                radioLabel.focus();
+                editCategory.innerHTML = `<i class="fa-solid fa-floppy-disk"></i>`;
+            }
+            else {
+                radioLabel.setAttribute("readonly", "readonly");
+                editCategory.innerHTML = `<i class="fa-solid fa-pen-to-square"></i>`;
+            }
+        });
+
         //create delete button
         const delCategoryBtn = document.createElement("button");
         delCategoryBtn.className = "delete-button";
@@ -221,16 +239,22 @@ function createCategory() {
         //Delete functionality
         delCategoryBtn.addEventListener("click", () => {
             if (confirm("Are you sure you want to delete this task?")) {
-                categoryContainer.removeChild(listItem);
+                categoryContainer.removeChild(radioContainer);
             }
         });
 
         //append children
-        listItem.appendChild(linkItem);
-        listItem.appendChild(editCategory);
-        listItem.appendChild(delCategoryBtn);
+        radioContainer.appendChild(radioItem);
+        radioContainer.appendChild(radioLabel);
 
-        categoryContainer.appendChild(listItem);
+        //checks hidden radio button when the label is clicked
+        radioLabel.addEventListener("click",()=>{
+            radioItem.checked = "true";
+        });
+        radioContainer.appendChild(editCategory);
+        radioContainer.appendChild(delCategoryBtn);
+
+        categoryContainer.appendChild(radioContainer);
     }
     categoryBox.value = ""
 }
