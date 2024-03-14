@@ -13,6 +13,7 @@ window.onload = function () {
 //Add Task
 const addTaskBox = document.getElementById("addTaskBox");
 const taskList = document.getElementById("tasks-container");
+const compTasklist = document.getElementById("completed-tasks-container");
 
 //Creating a function to create task IDs incrementally
 let taskIdCounter = 0;
@@ -165,6 +166,21 @@ function addTask() {
 
         //Append item to ul container
         taskList.appendChild(listItem);
+        hideElementIfChildrenExist("tasks-container", "no-task-added");
+
+        //Moving item to completed container when checked
+        checkbox.addEventListener("click", () =>{
+            if(checkbox.checked){
+                taskList.removeChild(listItem);
+                duedateContainer.removeChild(duedateIcon);
+                compTasklist.appendChild(listItem);
+            }
+            else{
+                compTasklist.removeChild(listItem);
+                duedateContainer.appendChild(duedateIcon);
+                taskList.appendChild(listItem);
+            }
+        });
     }
     addTaskBox.value = "";
 }
@@ -192,10 +208,16 @@ function createCategory(){
         linkItem.href = "#";
         linkItem.textContent = categoryBox.value;
 
-
         const delCategoryBtn = document.createElement("button");
         delCategoryBtn.className = "delete-button";
         delCategoryBtn.innerHTML = `<i class="fa-solid fa-trash"></i>`;
+
+        //Delete functionality
+        delCategoryBtn.addEventListener("click", () =>{
+            if(confirm("Are you sure you want to delete this task?")){
+                categoryContainer.removeChild(listItem);
+            }
+        });
 
         //append children
         listItem.appendChild(linkItem);
@@ -206,3 +228,15 @@ function createCategory(){
     categoryBox.value = ""
 }
 
+function hideElementIfChildrenExist(containerId, elementId) {
+    const container = document.getElementById(containerId);
+    const elementToHide = document.getElementById(elementId);
+
+    if (container && elementToHide) {
+        // Check if the container has any child elements
+        if (container.children.length > 0) {
+            // Set the display of the specified element to "none"
+            elementToHide.style.display = "none";
+        }
+    }
+}

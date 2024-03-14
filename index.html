@@ -73,12 +73,12 @@
                 <div class="all-tasks">
                     <!--To-do Tasks-->
                     <ul id="tasks-container" class="tasks">
-                        <!--No Task Added Visual
+                        
                         <div class="no-task-added" id="no-task-added">
                             <img src="styles/images/wakeup.png" style="width: 200px; height: 200px;">
                             <p style="color: gray;">Ah! w'ada?  Wake Up & Get Cooking!</p>
                         </div>
-                        -->
+                        
                         
                         <!--
                         <li id="task" class="task">
@@ -117,24 +117,41 @@
                     </div>
 
                     <!--Completed Tasks-->
-                    <div class="tasks">
-                        <!--Task-->
-                        <div>
-                            <li class="task" action="">
-                                <!--Checkbox-->
+                    <ul id="completed-tasks-container" class="tasks">
+                        <!--No Task Added Visual
+                        <div class="no-task-added" id="no-task-added">
+                            <img src="styles/images/wakeup.png" style="width: 200px; height: 200px;">
+                            <p style="color: gray;">Ah! w'ada?  Wake Up & Get Cooking!</p>
+                        </div>
+                        -->
+                        
+                        <!--
+                        <li id="task" class="task">
                                 <label class="checklabel">
-                                    <input type="checkbox">
+                                    <input class="default" type="checkbox">
                                     <span class="checkmark"></span>
-                                    <span class="label-text">Task 1</span>
+                                    <input type="text" class="label-text">
                                 </label>
                                 <div class="action-items">
-                                    <!--Delete button-->
+                                    
+                                    <select name="urgency" id="urgency" class="drop-down">
+                                        <option value="0" disabled selected>Urgency:</option>
+                                        <option value="low">Low</option>
+                                        <option value="normal">Normal</option>
+                                        <option value="high">High</option>
+                                    </select>
+                                   
+                                    <div class="duedate">
+                                        <label id="dateicon" for="dueDate" class="secondary-button"><i class="fa-solid fa-clock"></i>
+                                        </label>
+                                        <input type="datetime-local" id="dueDate" name="dueDate" class="datepicker">
+                                    </div>
+                                    
                                     <button class="delete-button"><i class="fa-solid fa-trash"></i></button>
                                 </div>
-                            </li>
-                        </div>
-                        
-                    </div>
+                        </li>
+                    -->
+                    </ul>
                 </div>
             </div>
         </div>
