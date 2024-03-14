@@ -6,18 +6,15 @@ window.onload = function () {
         var formattedDate = date.toLocaleDateString(undefined, options);
         document.getElementById('datetime').innerHTML = formattedDate;
     }, 1000); // 1000 milliseconds = 1 second
+
+    // const defaultCategory = document.getElementById("defaultCategory");
+    // defaultCategory.addEventListener("load",focus);
 }
 
 //document.querySelector("label[for='dueDate']").addEventListener("click", DisplayDueDate);
 
-//Add Task
-const addTaskBox = document.getElementById("addTaskBox");
-const taskList = document.getElementById("tasks-container");
-const compTasklist = document.getElementById("completed-tasks-container");
-
 //Creating a function to create task IDs incrementally
 let taskIdCounter = 0;
-
 function createTaskId() {
     taskIdCounter++;
     return `TASK-${taskIdCounter}`;
@@ -25,17 +22,15 @@ function createTaskId() {
 
 //Creating a function to create category IDs incrementally
 let categoryIdCounter = 0;
-
 function createCategoryId() {
     categoryIdCounter++;
     return `CATEGORY-${categoryIdCounter}`;
 }
 
-//Remove no-task-added div when there are tasks
-// if(x){
-//     const removeNoAddedTask = document.getElementById("no-task-added");
-//     removeNoAddedTask.document.display.style = "none";
-// }
+//Create Task
+const addTaskBox = document.getElementById("addTaskBox");
+const taskList = document.getElementById("tasks-container");
+const compTasklist = document.getElementById("completed-tasks-container");
 
 //Function to create task
 function addTask() {
@@ -213,6 +208,12 @@ function createCategory() {
         linkItem.href = "#";
         linkItem.textContent = categoryBox.value;
 
+        //Create edit button
+        const editCategory = document.createElement("button");
+        editCategory.className = "edit-button";
+        editCategory.innerHTML = `<i class="fa-solid fa-pen-to-square"></i>`;
+        
+        //create delete button
         const delCategoryBtn = document.createElement("button");
         delCategoryBtn.className = "delete-button";
         delCategoryBtn.innerHTML = `<i class="fa-solid fa-trash"></i>`;
@@ -226,6 +227,7 @@ function createCategory() {
 
         //append children
         listItem.appendChild(linkItem);
+        listItem.appendChild(editCategory);
         listItem.appendChild(delCategoryBtn);
 
         categoryContainer.appendChild(listItem);
@@ -246,12 +248,3 @@ function hideElementIfChildrenExist(containerId, elementId) {
         }
     }
 }
-
-
-
-const button = document.getElementById('myButton');
-button.addEventListener('click', () => {
-    oscillator.connect(context.destination);
-    oscillator.start();
-    oscillator.stop(context.currentTime + 0.1); // Stop after 0.1 seconds
-});

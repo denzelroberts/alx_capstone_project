@@ -75,6 +75,32 @@ h5{
     box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.50);
 }
 
+.category{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.radio-container{
+    width: 100%;
+}
+.custom-radio{
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    margin-right: -5px;
+}
+
+.radio-label{
+    width: 1px;
+    font-family: "Poppins";
+    background-color: var(--color-grey);
+    padding: 10px;
+    border-radius: 5px;
+}
+
 .category-top{
     display: flex;
     justify-content: space-between;
@@ -163,30 +189,6 @@ ul{
     display: flex;
     flex-direction: column;
     gap: 10px;
-}
-
-.category li{
-    display: flex;
-    width: 100%;
-    height: 40px;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
-}
-
-.category a{
-    width: 100%;
-    background-color: var(--color-grey);
-    padding: 10px;
-    border-radius: 5px;
-    font-family: "Poppins";
-    cursor: pointer;
-    text-decoration: none;
-    color: var(--color-black);
-}
-
-.category a:hover{
-    border: 1px solid var(--color-primary);
 }
 
 .selected-link:focus{
@@ -318,6 +320,7 @@ ul{
     cursor: pointer;
     height: 0;
     width: 0;
+    margin-right: -10px;
   }
   
   /* Create a custom checkbox */
