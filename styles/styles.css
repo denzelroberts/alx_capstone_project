@@ -211,6 +211,7 @@ ul{
     border: 2px solid var(--color-primary);
     border-radius: 5px;
     padding: 10px;
+    font-family: "Poppins";
 }
 
 .enter-task:focus, .enter-task:hover{

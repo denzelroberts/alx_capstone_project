@@ -121,14 +121,14 @@ function addTask() {
         editButton.innerHTML = `<i class="fa-solid fa-pen-to-square"></i>`;
 
         //Edit functionality
-        editButton.addEventListener("click", () =>{
-            if(labeltext.readOnly == true){
+        editButton.addEventListener("click", () => {
+            if (labeltext.readOnly == true) {
                 labeltext.removeAttribute("readonly");
                 labeltext.focus();
                 editButton.innerHTML = `<i class="fa-solid fa-floppy-disk"></i>`;
             }
-            else{
-                labeltext.setAttribute("readonly","readonly");
+            else {
+                labeltext.setAttribute("readonly", "readonly");
                 editButton.innerHTML = `<i class="fa-solid fa-pen-to-square"></i>`;
             }
         });
@@ -139,8 +139,8 @@ function addTask() {
         deleteButton.innerHTML = `<i class="fa-solid fa-trash"></i>`;
 
         //Delete functionality
-        deleteButton.addEventListener("click", () =>{
-            if(confirm("Are you sure you want to delete this task?")){
+        deleteButton.addEventListener("click", () => {
+            if (confirm("Are you sure you want to delete this task?")) {
                 taskList.removeChild(listItem);
             }
         });
@@ -169,17 +169,22 @@ function addTask() {
         hideElementIfChildrenExist("tasks-container", "no-task-added");
 
         //Moving item to completed container when checked
-        checkbox.addEventListener("click", () =>{
-            if(checkbox.checked){
+        checkbox.addEventListener("click", () => {
+            if (checkbox.checked) {
                 taskList.removeChild(listItem);
                 duedateContainer.removeChild(duedateIcon);
                 compTasklist.appendChild(listItem);
+                
+                //adding audio to completion
+                const audio = document.getElementById("myAudio");
+                audio.play();
             }
-            else{
+            else {
                 compTasklist.removeChild(listItem);
                 duedateContainer.appendChild(duedateIcon);
                 taskList.appendChild(listItem);
             }
+            
         });
     }
     addTaskBox.value = "";
@@ -189,7 +194,7 @@ function addTask() {
 const categoryBox = document.getElementById("categoryBox");
 const categoryContainer = document.getElementById("categoryContainer");
 
-function createCategory(){
+function createCategory() {
     if (categoryBox.value == "") {
         alert("You must input a category");
         return;
@@ -213,8 +218,8 @@ function createCategory(){
         delCategoryBtn.innerHTML = `<i class="fa-solid fa-trash"></i>`;
 
         //Delete functionality
-        delCategoryBtn.addEventListener("click", () =>{
-            if(confirm("Are you sure you want to delete this task?")){
+        delCategoryBtn.addEventListener("click", () => {
+            if (confirm("Are you sure you want to delete this task?")) {
                 categoryContainer.removeChild(listItem);
             }
         });
@@ -228,6 +233,7 @@ function createCategory(){
     categoryBox.value = ""
 }
 
+//Hide sleeping image when task is created
 function hideElementIfChildrenExist(containerId, elementId) {
     const container = document.getElementById(containerId);
     const elementToHide = document.getElementById(elementId);
@@ -240,3 +246,12 @@ function hideElementIfChildrenExist(containerId, elementId) {
         }
     }
 }
+
+
+
+const button = document.getElementById('myButton');
+button.addEventListener('click', () => {
+    oscillator.connect(context.destination);
+    oscillator.start();
+    oscillator.stop(context.currentTime + 0.1); // Stop after 0.1 seconds
+});
