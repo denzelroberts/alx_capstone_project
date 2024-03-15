@@ -27,7 +27,7 @@
     align-items: center;
     padding: 4%;
     background-size: cover;
-    gap: 40px;
+    gap: 30px;
 }
 
 /*logo*/
@@ -484,5 +484,29 @@ footer p{
 
     h2, h3{
         font-size: medium;
+    }
+}
+
+@media (width < 900px){
+    h2, h3{
+        font-size: medium;
+    }
+
+    .main-bg{
+        height: auto;
+    }
+}
+
+@media (width < 450px){
+    h2, h3{
+        font-size: small;
+    }
+
+    .main-bg{
+        height: auto;
+    }
+
+    footer p{
+        font-size: 10px;
     }
 }

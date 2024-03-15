@@ -61,7 +61,7 @@
                 <div class="add-task">
                     <input class="enter-task" type="text" id="addTaskBox" placeholder="Add your new task here"
                         name="add-task">
-                    <button onclick="addTask()" class="primary-button">+</button>
+                    <button onclick="addTask()" class="primary-button" id="addTask">+</button>
                 </div>
 
                 <!--Search box-->
@@ -80,6 +80,32 @@
                         </div>
                         <audio id="myAudio" src="styles/sounds/mixkit-correct-answer-tone-2870.wav"></audio>
 
+                        <!--
+                        <li id="task" class="task">
+                                <label class="checklabel">
+                                    <input class="default" type="checkbox">
+                                    <span class="checkmark"></span>
+                                    <input type="text" class="label-text">
+                                </label>
+                                <div class="action-items">
+                                    
+                                    <select name="urgency" id="urgency" class="drop-down">
+                                        <option value="0" disabled selected>Urgency:</option>
+                                        <option value="low">Low</option>
+                                        <option value="normal">Normal</option>
+                                        <option value="high">High</option>
+                                    </select>
+                                   
+                                    <div class="duedate">
+                                        <label id="dateicon" for="dueDate" class="secondary-button"><i class="fa-solid fa-clock"></i>
+                                        </label>
+                                        <input type="datetime-local" id="dueDate" name="dueDate" class="datepicker">
+                                    </div>
+                                    
+                                    <button class="delete-button"><i class="fa-solid fa-trash"></i></button>
+                                </div>
+                        </li>
+                    -->
                     </ul>
                     <!--Completed Divider-->
                     <div class="completed-divider" id="completed-divider" style="display: none;">
@@ -92,7 +118,39 @@
 
                     <!--Completed Tasks-->
                     <ul id="completed-tasks-container" class="tasks">
-                        
+                        <!--No Task Added Visual
+                        <div class="no-task-added" id="no-task-added">
+                            <img src="styles/images/wakeup.png" style="width: 200px; height: 200px;">
+                            <p style="color: gray;">Ah! w'ada?  Wake Up & Get Cooking!</p>
+                        </div>
+                        -->
+
+                        <!--
+                        <li id="task" class="task">
+                                <label class="checklabel">
+                                    <input class="default" type="checkbox">
+                                    <span class="checkmark"></span>
+                                    <input type="text" class="label-text">
+                                </label>
+                                <div class="action-items">
+                                    
+                                    <select name="urgency" id="urgency" class="drop-down">
+                                        <option value="0" disabled selected>Urgency:</option>
+                                        <option value="low">Low</option>
+                                        <option value="normal">Normal</option>
+                                        <option value="high">High</option>
+                                    </select>
+                                   
+                                    <div class="duedate">
+                                        <label id="dateicon" for="dueDate" class="secondary-button"><i class="fa-solid fa-clock"></i>
+                                        </label>
+                                        <input type="datetime-local" id="dueDate" name="dueDate" class="datepicker">
+                                    </div>
+                                    
+                                    <button class="delete-button"><i class="fa-solid fa-trash"></i></button>
+                                </div>
+                        </li>
+                    -->
                     </ul>
                 </div>
             </div>

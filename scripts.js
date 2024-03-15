@@ -1,3 +1,44 @@
+// const tasksArray = localStorage.getItem("tasks") ? JSON.parse(localStorage.getItem("tasks")):
+// [];
+// console.log(tasksArray);
+
+// function displayItems(){
+//     let tasks = "";
+//     for(let i = 0; i < tasksArray.length; i++){
+//         tasks += `<li id="task" class="task">
+//         <label class="checklabel">
+//             <input class="default" type="checkbox">
+//             <span class="checkmark"></span>
+//             ${tasksArray[i]}
+//         </label>
+//         <div class="action-items">
+            
+//             <select name="urgency" id="urgency" class="drop-down">
+//                 <option value="0" disabled selected>Urgency:</option>
+//                 <option value="low">Low</option>
+//                 <option value="normal">Normal</option>
+//                 <option value="high">High</option>
+//             </select>
+           
+//             <div class="duedate">
+//                 <label id="dateicon" for="dueDate" class="secondary-button"><i class="fa-solid fa-clock"></i>
+//                 </label>
+//                 <input type="datetime-local" id="dueDate" name="dueDate" class="datepicker">
+//             </div>
+            
+//             <button class="delete-button"><i class="fa-solid fa-trash"></i></button>
+//         </div>
+// </li>`
+//     }
+//     document.querySelector(".tasks").innerHTML = tasks;
+// }
+
+// function createItem(task){
+//     tasksArray.push(task.value);
+//     localStorage.setItem("tasks", JSON.stringify(tasksArray));
+//     //location.reload();
+// }
+
 //Displate Date
 window.onload = function () {
     setInterval(function () {
@@ -6,6 +47,8 @@ window.onload = function () {
         var formattedDate = date.toLocaleDateString(undefined, options);
         document.getElementById('datetime').innerHTML = formattedDate;
     }, 1000); // 1000 milliseconds = 1 second
+
+    //displayItems();
 }
 
 //Creating a function to create task IDs incrementally
@@ -38,6 +81,9 @@ function addTask() {
         const newTaskId = createTaskId();
         //later store this somewhere
         console.log(`New task ID: ${newTaskId}`);
+
+        // const task = document.querySelector("#addTaskBox");
+        // createItem(task);
 
         //creating list item
         const listItem = document.createElement("li");
@@ -192,6 +238,7 @@ function addTask() {
 //creating category
 const categoryBox = document.getElementById("categoryBox");
 const categoryContainer = document.getElementById("categoryContainer");
+const radioContainer = document.createElement("div");
 
 function createCategory() {
     if (categoryBox.value == "") {
@@ -205,7 +252,7 @@ function createCategory() {
         console.log(`New category ID: ${newCategoryId}`);
 
         //creating elements
-        const radioContainer = document.createElement("div");
+        
         radioContainer.className = "radio-container";
         
         const radioItem = document.createElement("input");
@@ -274,7 +321,7 @@ function createCategory() {
 
         categoryContainer.appendChild(radioContainer);
     }
-    categoryBox.value = ""
+    categoryBox.value = "";
 }
 
 //Hide sleeping image when task is created
