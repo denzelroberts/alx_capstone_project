@@ -8,8 +8,6 @@ window.onload = function () {
     }, 1000); // 1000 milliseconds = 1 second
 }
 
-//document.querySelector("label[for='dueDate']").addEventListener("click", DisplayDueDate);
-
 //Creating a function to create task IDs incrementally
 let taskIdCounter = 0;
 function createTaskId() {
@@ -24,7 +22,7 @@ function createCategoryId() {
     return `CATEGORY-${categoryIdCounter}`;
 }
 
-//Create Task
+//Create Task declarations
 const addTaskBox = document.getElementById("addTaskBox");
 const taskList = document.getElementById("tasks-container");
 const compTasklist = document.getElementById("completed-tasks-container");
@@ -134,11 +132,17 @@ function addTask() {
 
         //Delete functionality
         deleteButton.addEventListener("click", () => {
-            if (confirm("Are you sure you want to delete this task?")) {
-                taskList.removeChild(listItem);
+            if(checkbox.checked){
+                //if checkbox is checked delete from completed tasks container
+                if (confirm("Are you sure you want to delete this task?")) {
+                            compTasklist.removeChild(listItem);
+                        }
+            }else{
+                //if checkbox is not checked, delete from to-do tasks area
+                if (confirm("Are you sure you want to delete this task?")) {
+                    taskList.removeChild(listItem);
+                }
             }
-            
-            //hideElementIfChildrenExist("tasks-container", "no-task-added");
         });
 
         //Append items to label tag
@@ -174,7 +178,6 @@ function addTask() {
                 //adding audio to completion
                 const audio = document.getElementById("myAudio");
                 audio.play();
-                
             }
             else {
                 compTasklist.removeChild(listItem);
@@ -285,13 +288,3 @@ function hideElementIfChildrenExist(containerId, elementId) {
             compDivider.style.display = "flex"
         }
 }
-
-// function(){
-//     localStorage.setItem("data", categoryBox);
-// }
-
-// function showTask(){
-//     categoryBox = localStorage.getItem("data");
-// }
-
-// showTask();

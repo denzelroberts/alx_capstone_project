@@ -56,6 +56,7 @@ h5{
     color: white;
 }
 
+/*Main layout styles*/
 .layout{
     display: flex;
     width: 100%;
@@ -63,6 +64,7 @@ h5{
     gap: 40px;
 }
 
+/*Side bar*/
 .category-bar{
     display: flex;
     flex-direction: column;
@@ -82,6 +84,7 @@ h5{
     gap: 10px;
 }
 
+/*custom radio button container*/
 .radio-container{
     width: 100%;
     display: flex;
@@ -89,12 +92,14 @@ h5{
     align-items: center;
 }
 
+/*radio label border color on hover*/
 .radio-label:hover{
     border: 1px solid var(--color-primary);
     transition: 0.4s;
     outline: none;
 }
 
+/*hide default radio button*/
 .custom-radio{
     opacity: 0;
     cursor: pointer;
@@ -103,6 +108,7 @@ h5{
     margin-right: -5px;
 }
 
+/*custom radio label*/
 .radio-label{
     width: 100%;
     border-radius: 5px;
@@ -113,6 +119,7 @@ h5{
     font-size: 14px;
 }
 
+/*fill label background when radio button is checked*/
 .radio-container input:checked ~ .radio-label{
     background-image: linear-gradient(to right,var(--color-primary), #ab0039);
     color: white;
@@ -209,16 +216,17 @@ ul{
     gap: 10px;
 }
 
-.selected-link:focus{
+/* .selected-link:focus{
     background-color: var(--color-primary);
     color: white;
-}
+} */
 
 .task-area{
     width: 100%;
     height: 70vh;
 }
 
+/* add task container */
 .add-task{
     display: flex;
     width: 100%;
@@ -226,6 +234,7 @@ ul{
     gap: 10px;
 }
 
+/* bask box styles */
 .enter-task{
     width: 100%;
     border: 2px solid var(--color-primary);
@@ -272,6 +281,7 @@ ul{
     cursor: pointer;
 }
 
+/* tasks container */
 .all-tasks{
     display: flex;
     flex-direction: column;
@@ -285,6 +295,7 @@ ul{
     gap: 10px;
 }
 
+/* when no task is add, display image */
 .no-task-added{
     display: flex;
     flex-direction: column;
@@ -294,6 +305,7 @@ ul{
     padding: 20px;
 }
 
+/* task style */
 .task{
     height: 40px;
     width: 100%;
@@ -352,7 +364,7 @@ ul{
     border: 1px solid var(--color-black);
   }
   
-  /* On mouse-over, add a grey background color */
+  /* On mouse-over, add a background color */
   .checklabel:hover input ~ .checkmark {
     background-color: rgb(221, 255, 221);
   }
@@ -385,10 +397,12 @@ ul{
     transform: rotate(45deg);
   }
 
+  /* strikethrough text when checkbox is checked */
   .checklabel input:checked ~ .label-text {
     text-decoration: line-through;
 }
 
+/* action buttons for each task */
 .action-items{
     display: flex;
     gap: 5px;
@@ -396,6 +410,7 @@ ul{
     align-items: center;
 }
 
+/* urgency drop-down */
 .drop-down{
     height: 100%;
     min-width: 90px;
@@ -404,6 +419,7 @@ ul{
     outline: none;
     border-radius: 5px;
 }
+
 
 .duedate{
     display: flex;
@@ -441,4 +457,32 @@ footer{
 
 footer p{
     color: white;
+}
+
+@media (width < 800px){
+    .layout{
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .category-bar{
+        width: 100%;
+        height: auto;
+    }
+
+    .task-area{
+        height: auto;
+    }
+
+    .logo{
+        width: 100px;
+    }
+
+    .main-bg{
+        gap: 20px;
+    }
+
+    h2, h3{
+        font-size: medium;
+    }
 }
