@@ -43,7 +43,7 @@
                     <!--Default category-->
                     <div class="radio-container">
                         <input type="radio" class="custom-radio" name="category" id="mydailytask" checked>
-                        <label for="mydailytask" class="radio-label">My Daily Tasks</label>
+                        <label id="default-category" for="mydailytask" class="radio-label">My Daily Tasks</label>
                     </div>
                 </div>
             </div>
@@ -51,7 +51,7 @@
             <div class="category-bar task-area">
                 <!--Title-->
                 <div class="category-top">
-                    <h2>Menu item 1</h2>
+                    <h2 id="category-title">My Daily Tasks</h2>
                     <h3 id="datetime"></h3>
                 </div>
 
@@ -106,7 +106,7 @@
                     -->
                     </ul>
                     <!--Completed Divider-->
-                    <div class="completed-divider">
+                    <div class="completed-divider" id="completed-divider" style="display: none;">
                         <div class="divider">
                         </div>
                         <h4>Completed</h4>

@@ -118,10 +118,12 @@ function addTask() {
                 labeltext.removeAttribute("readonly");
                 labeltext.focus();
                 editButton.innerHTML = `<i class="fa-solid fa-floppy-disk"></i>`;
+                
             }
             else {
                 labeltext.setAttribute("readonly", "readonly");
                 editButton.innerHTML = `<i class="fa-solid fa-pen-to-square"></i>`;
+                
             }
         });
 
@@ -135,6 +137,8 @@ function addTask() {
             if (confirm("Are you sure you want to delete this task?")) {
                 taskList.removeChild(listItem);
             }
+            
+            //hideElementIfChildrenExist("tasks-container", "no-task-added");
         });
 
         //Append items to label tag
@@ -159,7 +163,7 @@ function addTask() {
         //Append item to ul container
         taskList.appendChild(listItem);
         hideElementIfChildrenExist("tasks-container", "no-task-added");
-
+        
         //Moving item to completed container when checked
         checkbox.addEventListener("click", () => {
             if (checkbox.checked) {
@@ -170,13 +174,13 @@ function addTask() {
                 //adding audio to completion
                 const audio = document.getElementById("myAudio");
                 audio.play();
+                
             }
             else {
                 compTasklist.removeChild(listItem);
                 duedateContainer.appendChild(duedateIcon);
                 taskList.appendChild(listItem);
             }
-            
         });
     }
     addTaskBox.value = "";
@@ -247,10 +251,21 @@ function createCategory() {
         radioContainer.appendChild(radioItem);
         radioContainer.appendChild(radioLabel);
 
-        //checks hidden radio button when the label is clicked
+        //checks hidden radio button when the label is clicked and set the title of the App by category selected
+        const categoryTitle = document.getElementById("category-title");
         radioLabel.addEventListener("click",()=>{
             radioItem.checked = "true";
+
+            //Dynamic title
+            categoryTitle.textContent = radioLabel.value;
         });
+
+        //Setting Category title to Daily Tasks
+        const defaultCategory = document.getElementById("default-category");
+        defaultCategory.addEventListener("click", () => {
+            categoryTitle.textContent = "My Daily Tasks";
+        });
+
         radioContainer.appendChild(editCategory);
         radioContainer.appendChild(delCategoryBtn);
 
@@ -263,12 +278,20 @@ function createCategory() {
 function hideElementIfChildrenExist(containerId, elementId) {
     const container = document.getElementById(containerId);
     const elementToHide = document.getElementById(elementId);
+    const compDivider = document.getElementById("completed-divider");
 
-    if (container && elementToHide) {
-        // Check if the container has any child elements
         if (container.children.length > 0) {
-            // Set the display of the specified element to "none"
             elementToHide.style.display = "none";
+            compDivider.style.display = "flex"
         }
-    }
 }
+
+// function(){
+//     localStorage.setItem("data", categoryBox);
+// }
+
+// function showTask(){
+//     categoryBox = localStorage.getItem("data");
+// }
+
+// showTask();
