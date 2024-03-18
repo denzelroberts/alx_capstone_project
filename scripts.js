@@ -1,43 +1,4 @@
-// const tasksArray = localStorage.getItem("tasks") ? JSON.parse(localStorage.getItem("tasks")):
-// [];
-// console.log(tasksArray);
 
-// function displayItems(){
-//     let tasks = "";
-//     for(let i = 0; i < tasksArray.length; i++){
-//         tasks += `<li id="task" class="task">
-//         <label class="checklabel">
-//             <input class="default" type="checkbox">
-//             <span class="checkmark"></span>
-//             ${tasksArray[i]}
-//         </label>
-//         <div class="action-items">
-            
-//             <select name="urgency" id="urgency" class="drop-down">
-//                 <option value="0" disabled selected>Urgency:</option>
-//                 <option value="low">Low</option>
-//                 <option value="normal">Normal</option>
-//                 <option value="high">High</option>
-//             </select>
-           
-//             <div class="duedate">
-//                 <label id="dateicon" for="dueDate" class="secondary-button"><i class="fa-solid fa-clock"></i>
-//                 </label>
-//                 <input type="datetime-local" id="dueDate" name="dueDate" class="datepicker">
-//             </div>
-            
-//             <button class="delete-button"><i class="fa-solid fa-trash"></i></button>
-//         </div>
-// </li>`
-//     }
-//     document.querySelector(".tasks").innerHTML = tasks;
-// }
-
-// function createItem(task){
-//     tasksArray.push(task.value);
-//     localStorage.setItem("tasks", JSON.stringify(tasksArray));
-//     //location.reload();
-// }
 
 //Displate Date
 window.onload = function () {

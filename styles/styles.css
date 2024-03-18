@@ -7,7 +7,6 @@
     --color-white: #ffffff;
     --color-black: #323232;
     --color-red: #CF4444;
-
 }
 
 /*applying general styles*/
@@ -215,11 +214,6 @@ ul{
     flex-direction: column;
     gap: 10px;
 }
-
-/* .selected-link:focus{
-    background-color: var(--color-primary);
-    color: white;
-} */
 
 .task-area{
     width: 100%;
