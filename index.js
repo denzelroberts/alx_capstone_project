@@ -41,7 +41,7 @@ const initializeApp = () => {
     });
 
     // Periodically Check for due tasks.
-    setInterval(checkTasksDueDate, 60000); // Check every minute
+    setInterval(checkTasksDueDate, 30000); // Check every thirty seconds
 }
 
 /**
