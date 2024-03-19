@@ -50,6 +50,10 @@ const initializeApp = () => {
 const initializeListeners = () => {
     const addTaskButton = document.getElementById('addTaskButton');
     const addTaskBox = document.getElementById('addTaskBox');
+    
+    //search event listener
+    document.getElementById("search-box").addEventListener("input", searchTasks);
+
 
     addTaskButton.addEventListener('click', () => {
         const taskDescription = addTaskBox.value.trim();
@@ -392,7 +396,7 @@ const displayTasksForActiveCategory = () => {
                     <label class="checklabel" style="position: relative;">
                         <input type="checkbox" checked class="task-checkbox" style="display:none;">
                         <span class="checkmark" onclick="toggleCheck('${task.id}')" ${task.completed ? 'data-checked="true"' : ''}></span>
-                        <span class="task-description completed">${task.description}</span>
+                        <span class="label-text">${task.description}</span>
                     </label>
                     <div class="action-items">
                         <select class="drop-down" disabled>
@@ -625,5 +629,78 @@ const deleteTask = (taskId, listItem) => {
             // Remove the task from the UI.
             listItem.remove();
         }
+    }
+}
+
+/**
+ * Search tasks based on the input value.
+ */
+const searchTasks = () => {
+    const searchInput = document.getElementById("search-box").value.toLowerCase(); // Get the search input value and convert it to lowercase
+    const taskList = document.getElementById("tasks-container");
+    const completedTaskList = document.getElementById("completed-tasks-container");
+
+    // Clear existing tasks from both task lists
+    taskList.innerHTML = '';
+    completedTaskList.innerHTML = '';
+
+    // Get the tasks for the active category
+    const currentTasks = tasks.get(activeCategoryId) || [];
+
+    // Filter tasks based on the search input
+    const filteredTasks = currentTasks.filter(task => task.description.toLowerCase().includes(searchInput));
+
+    // Display filtered tasks
+    filteredTasks.forEach(task => {
+        const listItem = document.createElement("li");
+        listItem.className = "task";
+        listItem.setAttribute('data-task-id', task.id);
+
+        // Create task HTML based on completion status
+        if (task.completed) {
+            // HTML for completed tasks
+            listItem.classList.add('completed');
+            listItem.innerHTML = `
+                <label class="checklabel" style="position: relative;">
+                    <input type="checkbox" checked class="task-checkbox" style="display:none;">
+                    <span class="checkmark" onclick="toggleCheck('${task.id}')" ${task.completed ? 'data-checked="true"' : ''}></span>
+                    <span class="task-description completed">${task.description}</span>
+                </label>
+                <div class="action-items">
+                    <!-- Include your action items here -->
+                </div>
+            `;
+            completedTaskList.appendChild(listItem);
+        } else {
+            // HTML for incomplete tasks
+            listItem.innerHTML = `
+                <label class="checklabel" style="position: relative;">
+                    <input type="checkbox" ${task.completed ? "checked" : ""} class="task-checkbox" style="display:none;">
+                    <span class="checkmark" onclick="toggleCheck('${task.id}')" ${task.completed ? 'data-checked="true"' : ''}></span>
+                    <span class="${task.completed ? "task-description completed" : "task-description"}">${task.description}</span>
+                </label>
+                <div class="action-items">
+                    <!-- Include your action items here -->
+                </div>
+            `;
+            taskList.appendChild(listItem);
+        }
+    });
+
+    // Check if there are no tasks matching the search query
+    if (filteredTasks.length === 0) {
+        const noTaskAdded = document.getElementById('no-task-added');
+        noTaskAdded.style.display = 'flex';
+    } else {
+        const noTaskAdded = document.getElementById('no-task-added');
+        noTaskAdded.style.display = 'none';
+    }
+
+    // Check if there are completed tasks to display
+    const completedDivider = document.getElementById("completed-divider");
+    if (completedTaskList.children.length > 0) {
+        completedDivider.style.display = "flex";
+    } else {
+        completedDivider.style.display = "none";
     }
 }
