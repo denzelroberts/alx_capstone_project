@@ -1,18 +1,26 @@
 # alx_capstone_project
- Project Overview:
-Provide a brief description of the project, its purpose, and goals. Explain what problem the project aims to solve or what value it brings to users.
+Project Overview:
+This is a responsive Task Manager application that can help users to schedule and plan their day to day activities to make them productive.
 
 Features and Functionality:
-List the main features and functionalities of the project. Describe how users can interact with the application and any notable aspects or unique selling points.
+- Ability to create tasks
+- Ability to create different task categories
+- Ability to edit a task/category
+- Ability to delete a task/category
+- Effective search functionality
+- Ability to set due date to tasks
+- Reminder notification functionality
+- Ability to add urgency to a task
 
 Technologies Used:
-Specify the technologies, frameworks, and languages used in the project. This can include HTML, CSS, JavaScript, Python, specific libraries, or frameworks like Flask, and any other tools or services utilized.
+-HTML
+-CSS
+-Javascript
 
-Screenshots or Demo:
-Include screenshots or a link to a live demo if available. Visual representations can help readers understand the project’s appearance and functionality.
-
-Roadmap and future enhancements:
-Share any future plans or potential improvements for the project. This could include additional features, performance optimizations, or scalability considerations.
+Screenshots:
+![Screenshot of app](styles/images/image.png)
 
 Contact information:
-Include your name, along with contact information or links to personal portfolios or social media profiles.
+Denzel Roberts
+phone: 0545751648
+email: iamdenzelroberts@gmail.com
