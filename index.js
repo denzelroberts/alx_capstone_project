@@ -4,9 +4,20 @@
  * @type {Map<string, {name: string}>} categories - Map of categories with category IDs as keys and category names as values.
  * @type {string} activeCategoryId - ID of the currently active category.
  */
+
 let tasks = new Map();
 let categories = new Map();
 let activeCategoryId = null;
+
+//Displate Date
+window.onload = function () {
+    setInterval(function () {
+        var date = new Date();
+        var options = { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
+        var formattedDate = date.toLocaleDateString(undefined, options);
+        document.getElementById('datetime').innerHTML = formattedDate;
+    }, 1000); // 1000 milliseconds = 1 second
+}
 
 /**
  * Initialize the application after DOM content is loaded.
@@ -51,7 +62,7 @@ const initializeListeners = () => {
     });
 
     // Setting up event delegation for the date icon click.
-    document.getElementById("tasks-container").addEventListener("click", function(e) {
+    document.getElementById("tasks-container").addEventListener("click", function (e) {
         if (e.target.closest(".secondary-button")) {
             const taskElement = e.target.closest("li[data-task-id]");
             if (taskElement) {
@@ -493,6 +504,9 @@ const toggleTaskCompletion = (taskId, isCompleted) => {
             saveTasksToLocalStorage();
             displayTasksForActiveCategory();
         }
+        //Adding a sound when task is checked
+        const audio = document.getElementById("myAudio");
+        audio.play();
     }
 }
 
@@ -613,5 +627,3 @@ const deleteTask = (taskId, listItem) => {
         }
     }
 }
-
-
