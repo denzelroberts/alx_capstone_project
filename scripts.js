@@ -1,5 +1,3 @@
-
-
 //Displate Date
 window.onload = function () {
     setInterval(function () {
